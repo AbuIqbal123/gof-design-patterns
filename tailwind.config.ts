@@ -18,7 +18,7 @@ const config: Config = {
         // Text colors - Reduced contrast for comfort
         "text-primary": "#e8e8ed",
         "text-secondary": "#9898a3",
-        "text-muted": "#6b6b75",
+        "text-muted": "#94949e",
 
         // Pattern category accent colors
         creational: "#22d3ee", // Cyan

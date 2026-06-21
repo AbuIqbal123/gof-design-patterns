@@ -2492,11 +2492,3 @@ System.out.println("Result: " + expr.interpret()); // 12`,
 export function getPatternBySlug(slug: string): PatternMetadata | undefined {
   return patterns.find((p) => p.slug === slug);
 }
-
-export function getPatternsByCategory(category: string): PatternMetadata[] {
-  return patterns.filter((p) => p.category === category);
-}
-
-export function getAllPatternSlugs(): string[] {
-  return patterns.map((p) => p.slug);
-}

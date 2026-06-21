@@ -20,18 +20,17 @@ interface ClassDiagramProps {
   category: "creational" | "structural" | "behavioral";
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const nodeTypes: Record<string, any> = {
+const nodeTypes = {
   umlClass: UMLClassNode,
 };
 
-export function ClassDiagram({ config, category }: ClassDiagramProps) {
-  const categoryColors = {
-    creational: "#22d3ee",
-    structural: "#a78bfa",
-    behavioral: "#4ade80",
-  };
+const categoryColors = {
+  creational: "#22d3ee",
+  structural: "#a78bfa",
+  behavioral: "#4ade80",
+} as const;
 
+export function ClassDiagram({ config, category }: ClassDiagramProps) {
   const accentColor = categoryColors[category];
 
   const initialNodes: Node[] = useMemo(
@@ -99,7 +98,10 @@ export function ClassDiagram({ config, category }: ClassDiagramProps) {
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
 
   return (
-    <div className="w-full h-[400px] rounded-xl overflow-hidden border border-border bg-[#0d0d0e]">
+    <figure
+      className="w-full h-[400px] rounded-xl overflow-hidden border border-border bg-[#0d0d0e]"
+      aria-label={`UML class diagram: ${config.participants.map(p => p.name).join(", ")}`}
+    >
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -109,6 +111,8 @@ export function ClassDiagram({ config, category }: ClassDiagramProps) {
         fitView
         fitViewOptions={{ padding: 0.2 }}
         proOptions={{ hideAttribution: true }}
+        nodesFocusable
+        nodesDraggable
       >
         <Background color="#27272a" gap={20} size={1} />
         <Controls
@@ -116,6 +120,6 @@ export function ClassDiagram({ config, category }: ClassDiagramProps) {
           showInteractive={false}
         />
       </ReactFlow>
-    </div>
+    </figure>
   );
 }

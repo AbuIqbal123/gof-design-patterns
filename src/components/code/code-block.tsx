@@ -47,13 +47,14 @@ export function CodeBlock({ code, language = "java" }: CodeBlockProps) {
       {/* Copy button */}
       <button
         onClick={handleCopy}
-        className="absolute right-3 top-3 p-2 rounded-md bg-surface/80 border border-border opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-surface"
+        className="absolute right-3 top-3 p-2 rounded-md bg-surface/80 border border-border z-10 hover:bg-surface transition-colors"
         aria-label={copied ? "Copied!" : "Copy code"}
+        type="button"
       >
         {copied ? (
-          <Check className="w-4 h-4 text-behavioral" />
+          <Check className="w-4 h-4 text-behavioral" aria-hidden="true" />
         ) : (
-          <Copy className="w-4 h-4 text-text-secondary" />
+          <Copy className="w-4 h-4 text-text-secondary" aria-hidden="true" />
         )}
       </button>
 
@@ -64,6 +65,7 @@ export function CodeBlock({ code, language = "java" }: CodeBlockProps) {
             <code>{code}</code>
           </pre>
         ) : (
+          // react-doctor-disable-next-line dangerous-html-sink -- Shiki output is server-generated, not user-controlled
           <div dangerouslySetInnerHTML={{ __html: html }} />
         )}
       </div>

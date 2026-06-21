@@ -1,17 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { BookOpen, Code2, Layers, Workflow } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 
 export default function HomePage() {
+  const shouldReduceMotion = useReducedMotion() || false;
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       {/* Hero Section */}
-      <main className="pt-16">
+      <main id="main-content" className="pt-16">
         <section className="min-h-[80vh] flex flex-col items-center justify-center px-6">
           <div className="text-center max-w-3xl">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -29,7 +31,7 @@ export default function HomePage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-structural text-background font-semibold rounded-lg hover:bg-structural/90 transition-colors"
             >
               Start Learning
-              <BookOpen className="w-5 h-5" />
+              <BookOpen className="w-5 h-5" aria-hidden="true" />
             </Link>
           </div>
 
@@ -56,57 +58,57 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold text-center mb-12">Pattern Categories</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {/* Creational */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+              <m.div
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1 }}
                 viewport={{ once: true }}
                 className="p-6 rounded-xl bg-surface border border-border hover:border-creational/50 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-lg bg-creational/10 flex items-center justify-center mb-4">
-                  <Layers className="w-6 h-6 text-creational" />
+                  <Layers className="w-6 h-6 text-creational" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-semibold text-creational mb-2">Creational</h3>
                 <p className="text-text-secondary mb-4">
                   Patterns for object creation mechanisms, increasing flexibility and reuse.
                 </p>
                 <div className="text-text-muted text-sm">5 patterns</div>
-              </motion.div>
+              </m.div>
 
               {/* Structural */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+              <m.div
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
+                transition={shouldReduceMotion ? undefined : { delay: 0.1 }}
                 className="p-6 rounded-xl bg-surface border border-border hover:border-structural/50 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-lg bg-structural/10 flex items-center justify-center mb-4">
-                  <Workflow className="w-6 h-6 text-structural" />
+                  <Workflow className="w-6 h-6 text-structural" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-semibold text-structural mb-2">Structural</h3>
                 <p className="text-text-secondary mb-4">
                   Patterns for composing classes and objects into larger structures.
                 </p>
                 <div className="text-text-muted text-sm">7 patterns</div>
-              </motion.div>
+              </m.div>
 
               {/* Behavioral */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+              <m.div
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
+                transition={shouldReduceMotion ? undefined : { delay: 0.2 }}
                 className="p-6 rounded-xl bg-surface border border-border hover:border-behavioral/50 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-lg bg-behavioral/10 flex items-center justify-center mb-4">
-                  <Code2 className="w-6 h-6 text-behavioral" />
+                  <Code2 className="w-6 h-6 text-behavioral" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-semibold text-behavioral mb-2">Behavioral</h3>
                 <p className="text-text-secondary mb-4">
                   Patterns for communication between objects and responsibility assignment.
                 </p>
                 <div className="text-text-muted text-sm">11 patterns</div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>

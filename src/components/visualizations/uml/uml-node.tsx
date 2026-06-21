@@ -63,7 +63,7 @@ export const UMLClassNode = memo(function UMLClassNode({ data }: UMLNodeProps) {
       <div className="px-3 py-2 border-b border-border min-h-[24px]">
         {attributes.length > 0 ? (
           attributes.map((attr, idx) => (
-            <div key={idx} className="text-text-secondary">
+            <div key={attr} className="text-text-secondary">
               {attr}
             </div>
           ))
@@ -76,7 +76,7 @@ export const UMLClassNode = memo(function UMLClassNode({ data }: UMLNodeProps) {
       <div className="px-3 py-2 min-h-[24px]">
         {methods.length > 0 ? (
           methods.map((method, idx) => (
-            <div key={idx} className="text-text-secondary">
+            <div key={method} className="text-text-secondary">
               {method}
             </div>
           ))

@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-21T00:00:00.000Z",
+  "title": "Design System: GoF Patterns",
+  "extensions": {
+    "colorMeta": {
+      "aqua-signal": {
+        "role": "primary",
+        "displayName": "Aqua Signal",
+        "canonical": "#22d3ee",
+        "tonalRamp": [
+          "#0a3d47",
+          "#0d525e",
+          "#106675",
+          "#147a8d",
+          "#178fa4",
+          "#1aa3bb",
+          "#1db7d2",
+          "#22d3ee"
+        ]
+      },
+      "violet-wire": {
+        "role": "secondary",
+        "displayName": "Violet Wire",
+        "canonical": "#a78bfa",
+        "tonalRamp": [
+          "#2d1f5e",
+          "#3d2a7d",
+          "#4d359c",
+          "#5d40bb",
+          "#7460cc",
+          "#8b78dd",
+          "#a291eb",
+          "#a78bfa"
+        ]
+      },
+      "signal-green": {
+        "role": "tertiary",
+        "displayName": "Signal Green",
+        "canonical": "#4ade80",
+        "tonalRamp": [
+          "#0f3d20",
+          "#15522b",
+          "#1a6836",
+          "#207d41",
+          "#26934c",
+          "#2ba857",
+          "#31be63",
+          "#4ade80"
+        ]
+      },
+      "ember": {
+        "role": "accent",
+        "displayName": "Ember",
+        "canonical": "#fb923c",
+        "tonalRamp": [
+          "#4a2a0e",
+          "#633813",
+          "#7c4618",
+          "#95541d",
+          "#ae6222",
+          "#c77027",
+          "#e07e2c",
+          "#fb923c"
+        ]
+      },
+      "deep-slate": {
+        "role": "neutral",
+        "displayName": "Deep Slate",
+        "canonical": "#0f0f12",
+        "tonalRamp": [
+          "#0f0f12",
+          "#18181c",
+          "#222228",
+          "#2e2e35",
+          "#4a4a54",
+          "#6b6b75",
+          "#9898a3",
+          "#e8e8ed"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#18181c",
+        "tonalRamp": [
+          "#0f0f12",
+          "#18181c",
+          "#222228",
+          "#2e2e35",
+          "#4a4a54",
+          "#6b6b75",
+          "#9898a3",
+          "#e8e8ed"
+        ]
+      },
+      "fog-white": {
+        "role": "neutral",
+        "displayName": "Fog White",
+        "canonical": "#e8e8ed",
+        "tonalRamp": [
+          "#6b6b75",
+          "#80808a",
+          "#9898a3",
+          "#b0b0b8",
+          "#c8c8ce",
+          "#d8d8de",
+          "#e8e8ed",
+          "#f4f4f6"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headings and pattern detail H1 only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headers throughout the app."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, subsection headers, navigation labels."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running text, descriptions, and explanations."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code blocks, inline code, and rank numbers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glow-creational",
+        "value": "0 0 20px rgba(34, 211, 238, 0.15)",
+        "purpose": "Creational pattern card hover glow."
+      },
+      {
+        "name": "glow-structural",
+        "value": "0 0 20px rgba(167, 139, 250, 0.15)",
+        "purpose": "Structural pattern card hover glow."
+      },
+      {
+        "name": "glow-behavioral",
+        "value": "0 0 20px rgba(74, 222, 128, 0.15)",
+        "purpose": "Behavioral pattern card hover glow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for all interactive state transitions on buttons, links, and form controls."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Hover, focus, and active state transitions."
+      },
+      {
+        "name": "duration-medium",
+        "value": "300ms",
+        "purpose": "Card hover transitions (scale, glow, border)."
+      }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main call-to-action. Violet Wire solid fill with dark text.",
+      "html": "<button class=\"ds-btn-primary\">Start Learning</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #a78bfa; color: #0f0f12; font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 600; padding: 12px 32px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { background: rgba(167,139,250,0.9); } .ds-btn-primary:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Neutral alternative. Dark surface with border, used for back navigation and cancel actions.",
+      "html": "<button class=\"ds-btn-secondary\">Home</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: #18181c; color: #e8e8ed; font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 500; padding: 12px 24px; border: 1px solid #2e2e35; border-radius: 8px; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1), border-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-secondary:hover { background: #222228; border-color: #a78bfa; } .ds-btn-secondary:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }"
+    },
+    {
+      "name": "Filter Pill",
+      "kind": "chip",
+      "refersTo": "filter-pill",
+      "description": "Category filter toggle for pattern listing. Color-matches the active category.",
+      "html": "<button class=\"ds-filter-pill ds-filter-pill-active\" data-category=\"creational\">Creational</button>",
+      "css": ".ds-filter-pill { background: transparent; color: #6b6b75; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer; transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-filter-pill:hover { color: #9898a3; } .ds-filter-pill-active { background: #18181c; border: 1px solid #2e2e35; color: #22d3ee; } .ds-filter-pill:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }"
+    },
+    {
+      "name": "Pattern Card",
+      "kind": "card",
+      "refersTo": "card-pattern",
+      "description": "The signature container for each design pattern. Fixed structure, variable content.",
+      "html": "<article class=\"ds-card-pattern\" data-category=\"creational\"><span class=\"ds-card-rank\">#1</span><div class=\"ds-card-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#22d3ee\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z\"/></svg></div><h3 class=\"ds-card-title\">Singleton</h3><span class=\"ds-card-category\" data-category=\"creational\">creational</span><p class=\"ds-card-tagline\">Ensure a class has only one instance</p><div class=\"ds-card-footer\"><span class=\"ds-card-label\">Difficulty</span><span class=\"ds-card-stars\">★☆☆☆☆</span></div></article>",
+      "css": ".ds-card-pattern { position: relative; background: #18181c; border: 1px solid rgba(34,211,238,0.3); border-radius: 16px; padding: 28px; cursor: pointer; transition: border-color 300ms cubic-bezier(0.4,0,0.2,1), box-shadow 300ms cubic-bezier(0.4,0,0.2,1), transform 300ms cubic-bezier(0.4,0,0.2,1); } .ds-card-pattern:hover { border-color: rgba(34,211,238,0.5); box-shadow: 0 0 20px rgba(34,211,238,0.15); transform: scale(1.02); } .ds-card-rank { position: absolute; top: 20px; right: 20px; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 0.875rem; color: #6b6b75; } .ds-card-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(34,211,238,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; } .ds-card-title { font-family: Inter, system-ui, sans-serif; font-size: 1.125rem; font-weight: 600; color: #e8e8ed; margin: 0 0 8px 0; } .ds-card-category { font-size: 0.875rem; font-weight: 500; color: #22d3ee; text-transform: capitalize; } .ds-card-tagline { font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; color: #9898a3; line-height: 1.7; margin: 16px 0 20px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } .ds-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 8px; } .ds-card-label { font-size: 0.75rem; color: #6b6b75; } .ds-card-stars { font-size: 0.875rem; color: #22d3ee; }"
+    },
+    {
+      "name": "Navbar Brand",
+      "kind": "nav",
+      "refersTo": "navbar-brand",
+      "description": "Fixed top navigation bar with glass-like depth.",
+      "html": "<nav class=\"ds-navbar\"><span class=\"ds-navbar-brand\">GoF <span class=\"ds-navbar-accent\">Patterns</span></span><a class=\"ds-navbar-link ds-navbar-link-active\" href=\"#\">All Patterns</a><a class=\"ds-navbar-link\" href=\"#\">Learning Path</a></nav>",
+      "css": ".ds-navbar { position: fixed; top: 0; width: 100%; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: rgba(15,15,18,0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #2e2e35; z-index: 50; box-sizing: border-box; } .ds-navbar-brand { font-family: Inter, system-ui, sans-serif; font-size: 1.25rem; font-weight: 700; color: #e8e8ed; } .ds-navbar-accent { color: #a78bfa; } .ds-navbar-link { font-family: Inter, system-ui, sans-serif; font-size: 1rem; color: #9898a3; text-decoration: none; transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-navbar-link:hover { color: #e8e8ed; } .ds-navbar-link-active { color: #e8e8ed; font-weight: 500; }"
+    },
+    {
+      "name": "Code Block",
+      "kind": "custom",
+      "refersTo": "code-block-java",
+      "description": "Syntax-highlighted Java code example with title header.",
+      "html": "<div class=\"ds-code-block\"><div class=\"ds-code-header\"><h4 class=\"ds-code-title\">Basic Implementation</h4><p class=\"ds-code-desc\">Thread-safe lazy initialization</p></div><div class=\"ds-code-body\"><pre class=\"ds-code-pre\"><code class=\"ds-code\">public class Singleton {\n  private static Singleton instance;\n  private Singleton() {}\n  public static Singleton getInstance() {\n    if (instance == null) {\n      instance = new Singleton();\n    }\n    return instance;\n  }\n}</code></pre></div></div>",
+      "css": ".ds-code-block { border-radius: 16px; overflow: hidden; } .ds-code-header { background: #18181c; border: 1px solid #2e2e35; border-bottom: none; padding: 16px 20px; border-radius: 16px 16px 0 0; } .ds-code-title { font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 600; color: #e8e8ed; margin: 0; } .ds-code-desc { font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; color: #6b6b75; margin: 4px 0 0 0; } .ds-code-body { border: 1px solid #2e2e35; border-top: none; border-radius: 0 0 16px 16px; overflow: hidden; background: #0f0f12; } .ds-code-pre { margin: 0; padding: 20px; overflow-x: auto; } .ds-code { font-family: 'JetBrains Mono', Consolas, monospace; font-size: 0.875rem; line-height: 1.6; color: #e8e8ed; tab-size: 2; }"
+    },
+    {
+      "name": "Metaphor Callout",
+      "kind": "custom",
+      "refersTo": "metaphor-card",
+      "description": "Real-world metaphor explanation card with accent icon.",
+      "html": "<section class=\"ds-metaphor\"><h2 class=\"ds-metaphor-heading\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#fb923c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20\"/></svg>Real-World Metaphor: The Government</h2><p class=\"ds-metaphor-text\">Just like a country has only one government at a time, a Singleton ensures only one instance exists.</p></section>",
+      "css": ".ds-metaphor { background: #18181c; border: 1px solid #2e2e35; border-radius: 16px; padding: 32px; } .ds-metaphor-heading { font-family: Inter, system-ui, sans-serif; font-size: 1.5rem; font-weight: 700; color: #e8e8ed; display: flex; align-items: center; gap: 12px; margin: 0 0 20px 0; } .ds-metaphor-text { font-family: Inter, system-ui, sans-serif; font-size: 1.125rem; color: #9898a3; line-height: 1.7; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Field Guide",
+    "overview": "A field guide works in two modes: quick identification in the wild and deep study back at the desk. The visual system serves both — scannable at speed, rewarding on sustained attention. Every pattern gets the same structural treatment so by pattern #3 you've learned the language; by pattern #23 you read it fluently. The system is precise, calm, authoritative. It assumes the user is capable: explanations are thorough, never remedial. The dark surface recedes so the three category colors carry the only color on the page, and they carry it deliberately. This is not gamified, not SaaS, not terminal-native. No badges. No gradient CTAs. The reading experience has warmth and hierarchy; the dark background is chosen because code reads better on dark surfaces, not because \"tools look cool dark.\"",
+    "keyCharacteristics": [
+      "Three category colors carry all semantic meaning; everything else is neutral",
+      "Flat at rest, ambient glow on hover — depth is a response, not a default",
+      "Inter for everything except code; JetBrains Mono for code blocks and rank badges",
+      "Generous whitespace, restrained motion, purposeful color",
+      "One structure repeated across 23 patterns so the system teaches itself"
+    ],
+    "rules": [
+      {
+        "name": "The Three-Color Rule",
+        "body": "Only Aqua Signal, Violet Wire, and Signal Green appear as colored elements on any page. Ember is reserved for warnings and errors. No other hues enter the palette.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ten-Percent Rule",
+        "body": "No category color occupies more than 10% of the visible surface at any scroll position. Their impact comes from scarcity.",
+        "section": "colors"
+      },
+      {
+        "name": "The Same-Four-Places Rule",
+        "body": "Each category color appears in exactly four locations: icon block, category label, difficulty indicator, hover border.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single-Family Rule",
+        "body": "Inter is the only typeface for prose. Weight (400/500/600/700) carries all hierarchy. JetBrains Mono is reserved for code and rank numbers.",
+        "section": "typography"
+      },
+      {
+        "name": "The Code-Width Rule",
+        "body": "Code blocks are limited to 80 characters per line. The code font and container width are set together so no line wraps in a block that fits the viewport at 1024px+.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-At-Rest Rule",
+        "body": "Cards, sections, and containers are flat at rest. Glows appear only as a response to hover. No element ships with a permanent shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One-Elevated-Layer Rule",
+        "body": "Only the navbar uses persistent z-axis elevation. Everything else shares the page plane until hover.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Use the three category colors in exactly four places per pattern: icon block, category label, difficulty indicator, hover border.",
+      "Keep pattern card structure identical across all 23 patterns. The system teaches itself through repetition.",
+      "Use Graphite (#18181c) as the surface for all cards, code blocks, and sections. One surface color, consistent everywhere.",
+      "Limit body text to 65-75 characters per line. Dark backgrounds need tighter measures than light ones for sustained reading.",
+      "Pair every interactive element with a visible focus ring (2px Violet Wire, 2px offset).",
+      "Respect reduced motion: all animations degrade to crossfade or instant transition.",
+      "Use border + tonal shift for depth at rest. Shadows and glows are hover-only responses.",
+      "Use Inter weight (400/500/600/700) as the sole typographic hierarchy mechanism."
+    ],
+    "donts": [
+      "Don't introduce new hues. The four named colors are the complete palette.",
+      "Don't use gradient text beyond the hero 'Gang of Four' signature.",
+      "Don't add gamification elements: no badges, XP, streaks, progress bars, confetti, or 'level up' language.",
+      "Don't use shadows at rest. If a card has a permanent drop shadow, it's wrong.",
+      "Don't use border-left or border-right greater than 1px as colored accent stripes.",
+      "Don't apply border-radius above 16px to cards or sections.",
+      "Don't use glassmorphism beyond the navbar's functional backdrop blur.",
+      "Don't add enterprise/tutorial aesthetic: no Oracle-style boxes-and-arrows, no 2000s beige backgrounds."
+    ]
+  }
+}

@@ -41,15 +41,6 @@ export function getCategoryGlow(category: "creational" | "structural" | "behavio
   return glows[category];
 }
 
-export function getCategoryGradientBorder(category: "creational" | "structural" | "behavioral"): string {
-  const borders = {
-    creational: "gradient-border-creational",
-    structural: "gradient-border-structural",
-    behavioral: "gradient-border-behavioral",
-  };
-  return borders[category];
-}
-
 export function getDifficultyStars(difficulty: number): string {
   return "★".repeat(difficulty) + "☆".repeat(5 - difficulty);
 }

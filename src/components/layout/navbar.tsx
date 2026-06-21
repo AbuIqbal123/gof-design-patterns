@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +14,22 @@ const navItems = [
 export function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    firstLinkRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMenuOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isMenuOpen]);
 
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
@@ -27,52 +43,58 @@ export function Navbar() {
         </Link>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex gap-6">
+        <ul className="hidden md:flex gap-6">
           {navItems.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={cn(
-                "transition-colors",
-                isActive(href)
-                  ? "text-text-primary font-medium"
-                  : "text-text-secondary hover:text-text-primary"
-              )}
-            >
-              {label}
-            </Link>
+            <li key={href}>
+              <Link
+                href={href}
+                className={cn(
+                  "transition-colors",
+                  isActive(href)
+                    ? "text-text-primary font-medium"
+                    : "text-text-secondary hover:text-text-primary"
+                )}
+              >
+                {label}
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {/* Mobile menu button */}
         <button
+          ref={toggleRef}
           className="md:hidden p-2 text-text-secondary hover:text-text-primary"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          type="button"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
         </button>
       </div>
 
       {/* Mobile menu dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden border-b border-border bg-surface">
-          {navItems.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={cn(
-                "block px-6 py-4 transition-colors",
-                isActive(href)
-                  ? "text-text-primary font-medium bg-surface-hover"
-                  : "text-text-secondary hover:text-text-primary hover:bg-surface-hover"
-              )}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {label}
-            </Link>
+        <ul className="md:hidden border-b border-border bg-surface">
+          {navItems.map(({ href, label }, i) => (
+            <li key={href}>
+              <Link
+                href={href}
+                ref={i === 0 ? firstLinkRef : undefined}
+                className={cn(
+                  "block px-6 py-4 transition-colors",
+                  isActive(href)
+                    ? "text-text-primary font-medium bg-surface-hover"
+                    : "text-text-secondary hover:text-text-primary hover:bg-surface-hover"
+                )}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {label}
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </nav>
   );
