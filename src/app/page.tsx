@@ -16,11 +16,9 @@ export default function HomePage() {
       <main id="main-content" className="pt-16">
         <section className="min-h-[80vh] flex flex-col items-center justify-center px-6">
           <div className="text-center max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-wrap balance">
               <span className="text-text-primary">Master the </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-creational via-structural to-behavioral">
-                Gang of Four
-              </span>
+              <span className="text-structural">Gang of Four</span>
             </h1>
             <p className="text-xl text-text-secondary mb-8">
               Learn all 23 design patterns through interactive visualizations,
